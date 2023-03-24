@@ -7,6 +7,6 @@ const Main = () => {
 
     return <DirectoryScreen campsites={campsites} />
 
-}
+};
 
 export default Main;
