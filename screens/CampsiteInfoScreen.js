@@ -4,7 +4,7 @@ import RenderCampsite from "../features/campsites/RenderCampsite";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleFavorite } from "../features/favorites/favoritesSlice";
 import { Input, Rating } from "react-native-elements";
-import { postComment } from "../features/comments/commentsSlice";
+import { postComments } from "../features/comments/commentsSlice";
 import * as Animatable from "react-native-animatable";
 
 const CampsiteInfoScreen = ({ route }) => {
@@ -26,7 +26,7 @@ const CampsiteInfoScreen = ({ route }) => {
       campsiteID: campsite.id,
     };
     //console.log('New Comment', newComment);
-    dispatch(postComment(newComment));
+    dispatch(postComments(newComment));
     setShowModal(!showModal);
   };
 
@@ -98,15 +98,15 @@ const CampsiteInfoScreen = ({ route }) => {
             placeholder="Author"
             leftIcon={{ type: "font-awesome", name: "user-o" }}
             leftIconContainerStyle={{ paddingRight: 10 }}
-            onChangeText={(newRating) => setRating(newRating)}
-            value
+            onChangeText={(author) => setAuthor(author)}
+            value = {author}
           />
           <Input
             placeholder="Comment"
             leftIcon={{ type: "font-awesome", name: "comment-o" }}
             leftIconContainerStyle={{ paddingRight: 10 }}
-            onChangeText={(newRating) => setRating(newRating)}
-            value
+            onChangeText={(text) => setText(text)}
+            value = {text}
           />
           <View style={{ margin: 10 }}>
             <Button
