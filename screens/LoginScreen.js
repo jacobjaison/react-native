@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { View, Button, StyleSheet } from 'react-native';
-import { Checkbox, Input } from 'react-native-elements';
+import { CheckBox, Input } from 'react-native-elements';
 import *  as SecureStore from 'expo-secure-store';
 
 const LoginScreen = () => {
@@ -36,6 +36,7 @@ const LoginScreen = () => {
             }
         });
     },[]);
+
     return ( 
         <View style = {styles.container}>
             <Input
@@ -54,7 +55,7 @@ const LoginScreen = () => {
                 containerStyle = {styles.formInput}
                 leftIconContainerStyle={styles.formIcon}
             />
-            <Checkbox
+            <CheckBox
                 title='Remember Me'
                 center
                 checked={remember}
@@ -64,15 +65,16 @@ const LoginScreen = () => {
             />
             <View style={styles.formButton}>
                 <Button
-                    onPress={() => handleLogin()}
+                   onPress={() => handleLogin()}
                     title='Login'
                     color='#5637DD'
                 />
 
             </View>
         </View>
-    )
-}
+    );
+};
+
 const styles = StyleSheet.create({
     container: {
         justifyContent:'center',
@@ -92,5 +94,4 @@ const styles = StyleSheet.create({
         margin:40
     }
 });
-
 export default LoginScreen;
